@@ -27,16 +27,17 @@ Autoloader::add_autoload_path("wechat-php-sdk-account");//账号管理
  *  常量 start
  **/
 //公众号唯一标识(应用ID)
-define("APPID", "wx8b50519bdc847806");
+if ( ! defined('APPID')) define("APPID", "");
+
 //公众号secret;
-define("APPSECRET", "271502f771908c2522feaad433c82ea1");
+if ( ! defined('APPSECRET')) define("APPSECRET", "");
 
 //微信网页授权,获取code时,回调地址
-define("CODEREDIRECTURI", 'http://www.jnexpert.com' . $_SERVER['REQUEST_URI']);
+if ( ! defined('APPSECRET')) define("CODEREDIRECTURI", 'http://www.jnexpert.com' . $_SERVER['REQUEST_URI']);
 
 //错误显示权限 TRUE:直接显示错误信息到页面 FALSE:不显示错误信息
-define("ERRORTHRESHOLD", TRUE);
-//define("ERRORTHRESHOLD", FALSE);
+if ( ! defined('APPSECRET')) define("ERRORTHRESHOLD", TRUE);
+//if ( ! defined('APPSECRET')) define("ERRORTHRESHOLD", FALSE);
 
 //配置 代理
 define("ENABLE_HTTP_PROXY", FALSE);
