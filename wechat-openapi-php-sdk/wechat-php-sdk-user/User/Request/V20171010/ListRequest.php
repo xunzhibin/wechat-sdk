@@ -22,7 +22,7 @@ class ListRequest extends \DefaultRequest
     {
 		parent::__construct();
 		
-		parent::reqeustResponseInit("GET", "JSON", "User", "list");
+		parent::requestResponseInit("GET", "JSON", "User", "list");
 		
 		parent::setAccessToken($accessToken);
 		

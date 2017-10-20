@@ -22,22 +22,26 @@ Autoloader::add_autoload_path("wechat-php-sdk-news");//消息
 Autoloader::add_autoload_path("wechat-php-sdk-jsapi");//微信客户端 js
 Autoloader::add_autoload_path("wechat-php-sdk-user");//微信用户
 Autoloader::add_autoload_path("wechat-php-sdk-account");//账号管理
+Autoloader::add_autoload_path("wechat-php-sdk-menu");//自定义菜单
+Autoloader::add_autoload_path("wechat-php-sdk-customservice");//客服
+Autoloader::add_autoload_path("wechat-php-sdk-material");//素材
+Autoloader::add_autoload_path("wechat-php-sdk-comment");//评论
 
 /**
  *  常量 start
  **/
 //公众号唯一标识(应用ID)
-if ( ! defined('APPID')) define("APPID", "");
+if ( ! defined('APPID')) define("APPID", "wx8b50519bdc847806");
 
 //公众号secret;
-if ( ! defined('APPSECRET')) define("APPSECRET", "");
+if ( ! defined('APPSECRET')) define("APPSECRET", "271502f771908c2522feaad433c82ea1");
 
 //微信网页授权,获取code时,回调地址
-if ( ! defined('APPSECRET')) define("CODEREDIRECTURI", 'http://www.jnexpert.com' . $_SERVER['REQUEST_URI']);
+if ( ! defined('CODEREDIRECTURI')) define("CODEREDIRECTURI", 'http://www.jnexpert.com' . $_SERVER['REQUEST_URI']);
 
 //错误显示权限 TRUE:直接显示错误信息到页面 FALSE:不显示错误信息
-if ( ! defined('APPSECRET')) define("ERRORTHRESHOLD", TRUE);
-//if ( ! defined('APPSECRET')) define("ERRORTHRESHOLD", FALSE);
+if ( ! defined('ERRORTHRESHOLD')) define("ERRORTHRESHOLD", TRUE);
+//if ( ! defined('ERRORTHRESHOLD')) define("ERRORTHRESHOLD", FALSE);
 
 //配置 代理
 define("ENABLE_HTTP_PROXY", FALSE);

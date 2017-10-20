@@ -68,7 +68,7 @@ class SubscribeRequest extends \DefaultRequest
      **/
     public function authorizationInit($templateId = NULL, $scene = NULL, $redirectUrl = NULL, $reserved = NULL)
     {
-		parent::reqeustResponseInit("GET", "JSON", "News", "subscribe_authorization");
+		parent::requestResponseInit("GET", "JSON", "News", "subscribe_authorization");
 
         $this->setAction("get_confirm");
         $this->setAppid(APPID);
@@ -83,7 +83,7 @@ class SubscribeRequest extends \DefaultRequest
      **/
     public function templateInit($token = NULL, $param)
     {
-		parent::reqeustResponseInit("POST", "JSON", "News", "subscribe_msg_template");
+		parent::requestResponseInit("POST", "JSON", "News", "subscribe_msg_template");
 
 		parent::setAccessToken($token);
 

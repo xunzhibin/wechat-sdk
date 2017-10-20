@@ -24,7 +24,7 @@ class HttpHelper
     /**
      *  统一 cURL 异步请求
      **/
-    public static function curl($url, $httpMethod = "GET", $postFields = NULL, $headers = NULL)
+    public static function curl($url, $httpMethod = "GET", $postFields = NULL, $headers = NULL, $upload = FALSE)
     {
         //初始化 cURL 会话
         $ch = curl_init();
@@ -55,7 +55,16 @@ class HttpHelper
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
 
         //设置 使用HTTP协议中POST 请求操作的请求参数
-        curl_setopt($ch, CURLOPT_POSTFIELDS, is_array($postFields) ? self::getPostHttpBody($postFields) : $postFields);
+		if($upload)//上传文件
+		{
+			//兼容5.0-5.6版本 上传文件
+			if(!class_exists('\CURLFile') && defined('CURLOPT_SAFE_UPLOAD'))
+			{
+				curl_setopt($ch, CURLOPT_SAFE_UPLOAD, FALSE);
+			}
+		}
+		curl_setopt($ch, CURLOPT_POSTFIELDS, self::getPostHttpBody($postFields, $upload));
+
 
         //设置 接收数据时，超时时间
         if(self::$readTimeout)
@@ -115,20 +124,14 @@ class HttpHelper
     /**
      *  获取 请求 post 参数
      **/
-    public static function getPostHttpBody($postFields)
+    public static function getPostHttpBody($postFields, $upload)
     {
-		$content = json_encode($postFields, JSON_UNESCAPED_UNICODE);
+		// var_dump($postFields, $upload);
+		// $content = json_encode($postFields, JSON_UNESCAPED_UNICODE);
+		$content = (!$upload && is_array($postFields)) ? json_encode($postFields, JSON_UNESCAPED_UNICODE) : $postFields;
 		// var_dump($content);
 
 		return $content;
-        // $content = '';
-
-        // foreach($postFields as $param => $val)
-        // {
-            // $content .= "$param=" . urlencode($val) . "&";
-        // }
-
-        // return substr($content, 0, -1);
     }
 
     /**

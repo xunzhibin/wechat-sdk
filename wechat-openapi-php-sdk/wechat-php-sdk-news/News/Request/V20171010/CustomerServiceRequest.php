@@ -164,7 +164,7 @@ class CustomerServiceRequest extends \DefaultRequest
      **/
     private function defaultInit($token, $openid, $type)
     {
-		parent::reqeustResponseInit("POST", "JSON", "News", "custom_send");
+		parent::requestResponseInit("POST", "JSON", "News", "custom_send");
 
 		parent::setAccessToken($token);
 

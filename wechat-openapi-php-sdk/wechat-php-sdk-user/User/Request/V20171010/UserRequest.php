@@ -39,7 +39,7 @@ class UserRequest extends \DefaultRequest
      **/
     public function infoInit($token, $openid, $lang = "zh_CN")
     {
-		parent::reqeustResponseInit("GET", "JSON", "User", "info");
+		parent::requestResponseInit("GET", "JSON", "User", "info");
 		
 		parent::setAccessToken($token);
 
@@ -51,7 +51,7 @@ class UserRequest extends \DefaultRequest
      **/
     public function batchInfoInit($token, $openids, $lang = "zh_CN")
     {
-		parent::reqeustResponseInit("POST", "JSON", "User", "batch_info");
+		parent::requestResponseInit("POST", "JSON", "User", "batch_info");
 		
 		parent::setAccessToken($token);
 

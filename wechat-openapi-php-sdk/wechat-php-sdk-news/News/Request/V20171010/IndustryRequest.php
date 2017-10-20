@@ -28,7 +28,7 @@ class IndustryRequest extends \DefaultRequest
      **/
     public function setInit($token = NULL, $industrys = NULL)
     {
-		parent::reqeustResponseInit("POST", "JSON", "News", "set_industry");
+		parent::requestResponseInit("POST", "JSON", "News", "set_industry");
 
 		parent::setAccessToken($token);
 
@@ -40,7 +40,7 @@ class IndustryRequest extends \DefaultRequest
      **/
     public function getInit($token = NULL)
     {
-		parent::reqeustResponseInit("GET", "JSON", "News", "get_industry");
+		parent::requestResponseInit("GET", "JSON", "News", "get_industry");
 
 		parent::setAccessToken($token);
     }

@@ -53,7 +53,7 @@ class TemplateRequest extends \DefaultRequest
      **/
     public function getInit($token = NULL, $templateIdShort = NULL)
     {
-		parent::reqeustResponseInit("POST", "JSON", "News", "template_id");
+		parent::requestResponseInit("POST", "JSON", "News", "template_id");
 
 		parent::setAccessToken($token);
 
@@ -65,7 +65,7 @@ class TemplateRequest extends \DefaultRequest
      **/
     public function listInit($token = NULL)
     {
-		parent::reqeustResponseInit("GET", "JSON", "News", "list_template");
+		parent::requestResponseInit("GET", "JSON", "News", "list_template");
 
 		parent::setAccessToken($token);
     }
@@ -75,7 +75,7 @@ class TemplateRequest extends \DefaultRequest
      **/
     public function delInit($token = NULL, $templateId = NULL)
     {
-		parent::reqeustResponseInit("POST", "JSON", "News", "del_template");
+		parent::requestResponseInit("POST", "JSON", "News", "del_template");
 
 		parent::setAccessToken($token);
 
@@ -87,7 +87,7 @@ class TemplateRequest extends \DefaultRequest
      **/
     public function sendInit($token = NULL, $param)
     {
-		parent::reqeustResponseInit("POST", "JSON", "News", "send");
+		parent::requestResponseInit("POST", "JSON", "News", "send");
 
 		parent::setAccessToken($token);
 

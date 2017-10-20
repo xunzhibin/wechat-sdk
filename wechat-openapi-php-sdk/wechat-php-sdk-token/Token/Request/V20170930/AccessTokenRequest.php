@@ -32,7 +32,7 @@ class AccessTokenRequest extends \DefaultRequest
     {
 		parent::__construct();
 
-		parent::reqeustResponseInit("GET", "JSON", "access_token", "token");
+		parent::requestResponseInit("GET", "JSON", "access_token", "token");
 		
 		$this->setGrantType("client_credential");
         $this->setAppid(APPID);

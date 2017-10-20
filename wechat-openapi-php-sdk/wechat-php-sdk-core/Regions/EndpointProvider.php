@@ -70,6 +70,8 @@ class EndpointProvider
 
 				isset($product["UriString"]) && $domain .= "/" . $product["UriString"];
 
+				$domain = str_replace(" ", "&", $domain);
+
 				return $domain;
 			}
         }

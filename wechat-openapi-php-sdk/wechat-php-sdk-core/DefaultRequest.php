@@ -15,6 +15,11 @@ class DefaultRequest extends AcsRequest
      *  调用接口凭证
      **/
     private $accessToken;
+	
+    /**
+     *  上传标识
+     **/
+    private $upload = FALSE;
 
     public function __construct()
     {
@@ -24,7 +29,7 @@ class DefaultRequest extends AcsRequest
     /**
      *  初始化 请求、响应 类型
      **/
-    public function reqeustResponseInit($method, $format, $serviceId, $product)
+    public function requestResponseInit($method, $format, $serviceId, $product)
     {
 		$this->requestParamInit();
 
@@ -59,5 +64,21 @@ class DefaultRequest extends AcsRequest
     public function getAccessToken()
     {
         return $this->accessToken;
+    }
+
+    /**
+     *  设置 上传标识
+     **/
+    public function setUpload($upload)
+    {
+        $this->upload = $upload;
+    }
+
+    /**
+     *  获取 上传标识
+     **/
+    public function getUpload()
+    {
+        return $this->upload;
     }
 }

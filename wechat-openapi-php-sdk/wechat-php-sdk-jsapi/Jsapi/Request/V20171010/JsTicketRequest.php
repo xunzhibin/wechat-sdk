@@ -30,7 +30,7 @@ class JsTicketRequest extends \DefaultRequest
     {
 		parent::__construct();
 
-		parent::reqeustResponseInit("GET", "JSON", "Jsapi", "ticket");
+		parent::requestResponseInit("GET", "JSON", "Jsapi", "ticket");
 		
 		parent::setAccessToken($token);
         $this->setType("jsapi");

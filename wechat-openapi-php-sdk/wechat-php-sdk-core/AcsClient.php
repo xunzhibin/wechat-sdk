@@ -58,7 +58,7 @@ class AcsClient
 		{
 			$postFields = (count($request->getDomainParameters()) > 0) ? $request->getDomainParameters() : $request->getContent();
 
-			$httpResponse = HttpHelper::curl($requestUrl, $request->getMethod(), $postFields, $request->getHeaders());
+			$httpResponse = HttpHelper::curl($requestUrl, $request->getMethod(), $postFields, $request->getHeaders(), $request->getUpload());
 
 			$retryTimes++;
 

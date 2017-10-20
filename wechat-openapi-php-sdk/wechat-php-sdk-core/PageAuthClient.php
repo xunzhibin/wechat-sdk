@@ -42,9 +42,9 @@ class PageAuthClient extends AcsClient
     {
         if(!isset($_GET['code']))
         {
-            // $domain = "open.weixin.qq.com/connect/oauth2/authorize";
 			$domain = EndpointProvider::findProductDomain($request->getServiceId(), $request->getProduct());
             $requestUrl = $request->composeUrl($domain);
+			var_dump($requestUrl, $_SERVER);exit;
 
             Header("Location: $requestUrl");
 

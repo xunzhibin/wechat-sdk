@@ -27,7 +27,7 @@ class ShortUrlRequest extends \DefaultRequest
 	{
 		parent::__construct();
 		
-		parent::reqeustResponseInit("POST", "JSON", "Account", "short_url");
+		parent::requestResponseInit("POST", "JSON", "Account", "short_url");
 
 		parent::setAccessToken($token);
 		

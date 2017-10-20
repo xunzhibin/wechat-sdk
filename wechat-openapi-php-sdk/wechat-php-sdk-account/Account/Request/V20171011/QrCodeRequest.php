@@ -53,7 +53,7 @@ class QrCodeRequest extends \DefaultRequest
      **/
     public function qrcodeInit($ticket)
     {
-		parent::reqeustResponseInit("GET", "JSON", "Account", "qrcode");
+		parent::requestResponseInit("GET", "JSON", "Account", "qrcode");
 
         $this->setTicket($ticket);
     }
@@ -63,7 +63,7 @@ class QrCodeRequest extends \DefaultRequest
      **/
     public function ticketInit($token = NULL, $scene = NULL, $expireSeconds = NULL)
     {
-		parent::reqeustResponseInit("POST", "JSON", "Account", "ticket");
+		parent::requestResponseInit("POST", "JSON", "Account", "ticket");
 
 		parent::setAccessToken($token);
 

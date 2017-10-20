@@ -1,6 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Endpoints>
     <Endpoint>
+        <ServiceId>Menu</ServiceId>
+        <Products>
+			<DomainName>api.weixin.qq.com</DomainName>
+            <Product>
+				<ProductName>info</ProductName>
+				<UriString>cgi-bin/get_current_selfmenu_info</UriString>
+			</Product>
+            <Product>
+				<ProductName>get</ProductName>
+				<UriString>cgi-bin/menu/get</UriString>
+			</Product>
+            <Product>
+				<ProductName>delete</ProductName>
+				<UriString>cgi-bin/menu/delete</UriString>
+			</Product>
+            <Product>
+				<ProductName>create</ProductName>
+				<UriString>cgi-bin/menu/create?access_token=%ACCESS_TOKEN%</UriString>
+			</Product>
+        </Products>
+    </Endpoint>
+    <Endpoint>
         <ServiceId>Oauth2</ServiceId>
         <Products>
 			<DomainName>api.weixin.qq.com</DomainName>
@@ -16,6 +38,108 @@
             <Product>
 				<ProductName>userinfo</ProductName>
 				<UriString>sns/userinfo</UriString>
+			</Product>
+        </Products>
+    </Endpoint>
+    <Endpoint>
+        <ServiceId>Customservice</ServiceId>
+        <Products>
+			<DomainName>api.weixin.qq.com</DomainName>
+            <Product>
+				<ProductName>add</ProductName>
+				<UriString>customservice/kfaccount/add?access_token=%ACCESS_TOKEN%</UriString>
+			</Product>
+			<Product>
+				<ProductName>update</ProductName>
+				<UriString>customservice/kfaccount/update?access_token=%ACCESS_TOKEN%</UriString>
+			</Product>
+            <Product>
+				<ProductName>list</ProductName>
+				<UriString>cgi-bin/customservice/getkflist</UriString>
+			</Product>
+        </Products>
+    </Endpoint>
+    <Endpoint>
+        <ServiceId>Material</ServiceId>
+        <Products>
+			<DomainName>api.weixin.qq.com</DomainName>
+            <Product>
+				<ProductName>list</ProductName>
+				<UriString>cgi-bin/material/batchget_material?access_token=%ACCESS_TOKEN%</UriString>
+			</Product>
+            <Product>
+				<ProductName>count</ProductName>
+				<UriString>cgi-bin/material/get_materialcount</UriString>
+			</Product>
+            <Product>
+				<ProductName>delete</ProductName>
+				<UriString>cgi-bin/material/del_material?access_token=%ACCESS_TOKEN%</UriString>
+			</Product>
+            <Product>
+				<ProductName>get</ProductName>
+				<UriString>cgi-bin/material/get_material?access_token=%ACCESS_TOKEN%</UriString>
+			</Product>
+            <Product>
+				<ProductName>add</ProductName>
+				<UriString>cgi-bin/material/add_material?access_token=%ACCESS_TOKEN% type=%TYPE%</UriString>
+			</Product>
+            <Product>
+				<ProductName>add_news</ProductName>
+				<UriString>cgi-bin/material/add_news?access_token=%ACCESS_TOKEN%</UriString>
+			</Product>
+            <Product>
+				<ProductName>update_news</ProductName>
+				<UriString>cgi-bin/material/update_news?access_token=%ACCESS_TOKEN%</UriString>
+			</Product>
+            <Product>
+				<ProductName>upload_img</ProductName>
+				<UriString>cgi-bin/media/uploadimg?access_token=%ACCESS_TOKEN%</UriString>
+			</Product>
+            <Product>
+				<ProductName>temp_get</ProductName>
+				<UriString>cgi-bin/media/get</UriString>
+			</Product>
+            <Product>
+				<ProductName>temp_upload</ProductName>
+				<UriString>cgi-bin/media/upload?access_token=%ACCESS_TOKEN% type=%TYPE%</UriString>
+			</Product>
+        </Products>
+    </Endpoint>
+	<Endpoint>
+        <ServiceId>Comment</ServiceId>
+        <Products>
+			<DomainName>api.weixin.qq.com</DomainName>
+            <Product>
+				<ProductName>open</ProductName>
+				<UriString>cgi-bin/comment/open?access_token=%ACCESS_TOKEN%</UriString>
+			</Product>
+			<Product>
+				<ProductName>close</ProductName>
+				<UriString>cgi-bin/comment/close?access_token=%ACCESS_TOKEN%</UriString>
+			</Product>
+			<Product>
+				<ProductName>list</ProductName>
+				<UriString>cgi-bin/comment/list?access_token=%ACCESS_TOKEN%</UriString>
+			</Product>
+			<Product>
+				<ProductName>markelect</ProductName>
+				<UriString>cgi-bin/comment/markelect?access_token=%ACCESS_TOKEN%</UriString>
+			</Product>
+			<Product>
+				<ProductName>unmarkelect</ProductName>
+				<UriString>cgi-bin/comment/unmarkelect?access_token=%ACCESS_TOKEN%</UriString>
+			</Product>
+			<Product>
+				<ProductName>delete</ProductName>
+				<UriString>cgi-bin/comment/delete?access_token=%ACCESS_TOKEN%</UriString>
+			</Product>
+			<Product>
+				<ProductName>reply</ProductName>
+				<UriString>cgi-bin/comment/reply/add?access_token=%ACCESS_TOKEN%</UriString>
+			</Product>
+			<Product>
+				<ProductName>delete_reply</ProductName>
+				<UriString>cgi-bin/comment/reply/delete?access_token=%ACCESS_TOKEN%</UriString>
 			</Product>
         </Products>
     </Endpoint>
@@ -125,6 +249,44 @@
 			<Product>
 				<ProductName>tags_delete</ProductName>
 				<UriString>cgi-bin/tags/delete?access_token=%ACCESS_TOKEN%</UriString>
+			</Product>
+			<Product>
+				<ProductName>tags_user_list</ProductName>
+				<UriString>cgi-bin/user/tag/get?access_token=%ACCESS_TOKEN%</UriString>
+			</Product>
+			<Product>
+				<ProductName>batchtagging</ProductName>
+				<UriString>cgi-bin/tags/members/batchtagging?access_token=%ACCESS_TOKEN%</UriString>
+			</Product>
+			<Product>
+				<ProductName>batchuntagging</ProductName>
+				<UriString>cgi-bin/tags/members/batchuntagging?access_token=%ACCESS_TOKEN%</UriString>
+			</Product>
+			<Product>
+				<ProductName>getidlist</ProductName>
+				<UriString>cgi-bin/tags/getidlist?access_token=%ACCESS_TOKEN%</UriString>
+			</Product>
+			<Product>
+				<ProductName>remark</ProductName>
+				<UriString>cgi-bin/user/info/updateremark?access_token=%ACCESS_TOKEN%</UriString>
+			</Product>
+        </Products>
+    </Endpoint>
+	<Endpoint>
+	<ServiceId>Blacklist</ServiceId>
+        <Products>
+			<DomainName>api.weixin.qq.com</DomainName>
+            <Product>
+				<ProductName>getblacklist</ProductName>
+				<UriString>cgi-bin/tags/members/getblacklist?access_token=%ACCESS_TOKEN%</UriString>
+			</Product>
+			<Product>
+				<ProductName>batchblacklist</ProductName>
+				<UriString>cgi-bin/tags/members/batchblacklist?access_token=%ACCESS_TOKEN%</UriString>
+			</Product>
+			<Product>
+				<ProductName>batchunblacklist</ProductName>
+				<UriString>cgi-bin/tags/members/batchunblacklist?access_token=%ACCESS_TOKEN%</UriString>
 			</Product>
         </Products>
     </Endpoint>
