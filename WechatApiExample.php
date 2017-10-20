@@ -94,10 +94,10 @@ class WechatApiExample
      **/
 	public function webGetUserinfo()
 	{
-		$this->request = new Oauth\UserinfoRequest();
+		$request = new Oauth\UserinfoRequest();
 		$this->client = new PageAuthClient();
 
-		$result = $this->client->getUserinfo($this->request);
+		$result = $this->client->getUserinfo($request);
 
 		return $this->response($result);
 	}
@@ -107,9 +107,9 @@ class WechatApiExample
      **/
 	public function getAccessToken()
 	{
-        $this->request = new Token\AccessTokenRequest();
+        $request = new Token\AccessTokenRequest();
 
-        $result = $this->client->getAcsResponse($this->request);
+        $result = $this->client->getAcsResponse($request);
 
 		return $this->response($result);
 	}
@@ -119,9 +119,9 @@ class WechatApiExample
      **/
 	public function getJsApiTicket($accessToken)
 	{
-        $this->request = new Jsapi\JsTicketRequest($accessToken);
+        $request = new Jsapi\JsTicketRequest($accessToken);
 
-        $result = $this->client->getAcsResponse($this->request);
+        $result = $this->client->getAcsResponse($request);
 
 		return $this->response($result);
 	}
@@ -145,10 +145,10 @@ class WechatApiExample
      **/
 	public function getWecahtUserInfo($accessToken, $openid)
 	{
-        $this->request = new User\UserRequest();
+        $request = new User\UserRequest();
 
-        $this->request->infoInit($accessToken, $openid);
-        $result = $this->client->getAcsResponse($this->request);
+        $request->infoInit($accessToken, $openid);
+        $result = $this->client->getAcsResponse($request);
 
 		return $this->response($result);
 	}
@@ -158,10 +158,10 @@ class WechatApiExample
      **/
 	public function getWecahtUserInfoBatch($accessToken, $openids)
 	{
-        $this->request = new User\UserRequest();
+        $request = new User\UserRequest();
 
-        $this->request->batchInfoInit($accessToken, $openids);
-        $result = $this->client->getAcsResponse($this->request);
+        $request->batchInfoInit($accessToken, $openids);
+        $result = $this->client->getAcsResponse($request);
 
 		return $this->response($result);
 	}
@@ -171,9 +171,9 @@ class WechatApiExample
      **/
 	public function getSubscribeUserList($accessToken, $nextOpenid = NULL)
 	{
-        $this->request = new User\ListRequest($accessToken, $nextOpenid);
+        $request = new User\ListRequest($accessToken, $nextOpenid);
 
-        $result = $this->client->getAcsResponse($this->request);
+        $result = $this->client->getAcsResponse($request);
 
 		return $this->response($result);
 	}
@@ -183,10 +183,10 @@ class WechatApiExample
      **/
 	public function postTags($accessToken, $name)
 	{
-        $this->request = new User\TagsRequest();
+        $request = new User\TagsRequest();
 
-		$this->request->createInit($accessToken, $name);
-        $result = $this->client->getAcsResponse($this->request);
+		$request->createInit($accessToken, $name);
+        $result = $this->client->getAcsResponse($request);
 
 		return $this->response($result);
 	}
@@ -196,10 +196,10 @@ class WechatApiExample
      **/
 	public function putTags($accessToken, $id, $name)
 	{
-        $this->request = new User\TagsRequest();
+        $request = new User\TagsRequest();
 
-		$this->request->updateInit($accessToken, $id, $name);
-        $result = $this->client->getAcsResponse($this->request);
+		$request->updateInit($accessToken, $id, $name);
+        $result = $this->client->getAcsResponse($request);
 
 		return $this->response($result, TRUE);
 	}
@@ -209,10 +209,10 @@ class WechatApiExample
      **/
 	public function deleteTags($accessToken, $id)
 	{
-        $this->request = new User\TagsRequest();
+        $request = new User\TagsRequest();
 
-		$this->request->deleteInit($accessToken, $id);
-        $result = $this->client->getAcsResponse($this->request);
+		$request->deleteInit($accessToken, $id);
+        $result = $this->client->getAcsResponse($request);
 
 		return $this->response($result, TRUE);
 	}
@@ -222,10 +222,10 @@ class WechatApiExample
      **/
 	public function getUserListToTags($accessToken, $tagid, $nextOpenid)
 	{
-        $this->request = new User\TagsRequest();
+        $request = new User\TagsRequest();
 
-		$this->request->userListInit($accessToken, $tagid, $nextOpenid);
-        $result = $this->client->getAcsResponse($this->request);
+		$request->userListInit($accessToken, $tagid, $nextOpenid);
+        $result = $this->client->getAcsResponse($request);
 
 		return $this->response($result);
 	}
@@ -235,10 +235,10 @@ class WechatApiExample
      **/
 	public function addTagsBatchForUser($accessToken, $tagid, $openidList)
 	{
-        $this->request = new User\TagsRequest();
+        $request = new User\TagsRequest();
 
-		$this->request->addTagsBatchInit($accessToken, $tagid, $openidList);
-        $result = $this->client->getAcsResponse($this->request);
+		$request->addTagsBatchInit($accessToken, $tagid, $openidList);
+        $result = $this->client->getAcsResponse($request);
 
 		return $this->response($result, TRUE);
 	}
@@ -248,10 +248,10 @@ class WechatApiExample
      **/
 	public function clearTagsBatchForUser($accessToken, $tagid, $openidList)
 	{
-        $this->request = new User\TagsRequest();
+        $request = new User\TagsRequest();
 
-		$this->request->clearTagsBatchInit($accessToken, $tagid, $openidList);
-        $result = $this->client->getAcsResponse($this->request);
+		$request->clearTagsBatchInit($accessToken, $tagid, $openidList);
+        $result = $this->client->getAcsResponse($request);
 
 		return $this->response($result, TRUE);
 	}
@@ -261,10 +261,10 @@ class WechatApiExample
      **/
 	public function getTagsListForUser($accessToken, $openid)
 	{
-        $this->request = new User\TagsRequest();
+        $request = new User\TagsRequest();
 
-		$this->request->tagsListInit($accessToken, $openid);
-        $result = $this->client->getAcsResponse($this->request);
+		$request->tagsListInit($accessToken, $openid);
+        $result = $this->client->getAcsResponse($request);
 
 		return $this->response($result);
 	}
@@ -274,10 +274,10 @@ class WechatApiExample
      **/
 	public function putRemark($accessToken, $openid, $remark)
 	{
-        $this->request = new User\RemarkRequest();
+        $request = new User\RemarkRequest();
 
-		$this->request->remarkInit($accessToken, $openid, $remark);
-        $result = $this->client->getAcsResponse($this->request);
+		$request->remarkInit($accessToken, $openid, $remark);
+        $result = $this->client->getAcsResponse($request);
 
 		return $this->response($result, TRUE);
 	}
@@ -287,10 +287,10 @@ class WechatApiExample
      **/
 	public function getTags($accessToken)
 	{
-        $this->request = new User\TagsRequest();
+        $request = new User\TagsRequest();
 
-		$this->request->getInit($accessToken);
-        $result = $this->client->getAcsResponse($this->request);
+		$request->getInit($accessToken);
+        $result = $this->client->getAcsResponse($request);
 
 		return $this->response($result);
 	}
@@ -300,10 +300,10 @@ class WechatApiExample
      **/
 	public function getKfList($accessToken)
 	{
-        $this->request = new Customservice\CustomserviceRequest();
+        $request = new Customservice\CustomserviceRequest();
 
-		$this->request->listInit($accessToken);
-        $result = $this->client->getAcsResponse($this->request);
+		$request->listInit($accessToken);
+        $result = $this->client->getAcsResponse($request);
 
 		return $this->response($result);
 	}
@@ -313,10 +313,10 @@ class WechatApiExample
      **/
 	public function postKfAccount($accessToken, $kfAccount, $name, $password)
 	{
-        $this->request = new Customservice\CustomserviceRequest();
+        $request = new Customservice\CustomserviceRequest();
 
-		$this->request->addInit($accessToken, $kfAccount, $name, $password);
-        $result = $this->client->getAcsResponse($this->request);
+		$request->addInit($accessToken, $kfAccount, $name, $password);
+        $result = $this->client->getAcsResponse($request);
 
 		return $this->response($result);
 	}
@@ -326,10 +326,10 @@ class WechatApiExample
      **/
 	public function putKfAccount($accessToken, $kfAccount, $name, $password)
 	{
-        $this->request = new Customservice\CustomserviceRequest();
+        $request = new Customservice\CustomserviceRequest();
 
-		$this->request->updateInit($accessToken, $kfAccount, $name, $password);
-        $result = $this->client->getAcsResponse($this->request);
+		$request->updateInit($accessToken, $kfAccount, $name, $password);
+        $result = $this->client->getAcsResponse($request);
 
 		return $this->response($result, TRUE);
 	}
@@ -339,10 +339,10 @@ class WechatApiExample
      **/
 	public function deleteKfAccount($accessToken, $kfAccount, $name, $password)
 	{
-        $this->request = new Customservice\CustomserviceRequest();
+        $request = new Customservice\CustomserviceRequest();
 
-		$this->request->deleteInit($accessToken, $kfAccount, $name, $password);
-        $result = $this->client->getAcsResponse($this->request);
+		$request->deleteInit($accessToken, $kfAccount, $name, $password);
+        $result = $this->client->getAcsResponse($request);
 
 		return $this->response($result, TRUE);
 	}
@@ -352,10 +352,10 @@ class WechatApiExample
      **/
 	public function sendText($accessToken, $openid, $content)
 	{
-        $this->request = new News\CustomerServiceRequest();
+        $request = new News\CustomerServiceRequest();
 
-        $this->request->textInit($accessToken, $openid, $content);
-        $result = $this->client->getAcsResponse($this->request);
+        $request->textInit($accessToken, $openid, $content);
+        $result = $this->client->getAcsResponse($request);
 
 		return $this->response($result, TRUE);
 	}
@@ -365,10 +365,10 @@ class WechatApiExample
      **/
 	public function sendImage($accessToken, $openid, $mediaId)
 	{
-        $this->request = new News\CustomerServiceRequest();
+        $request = new News\CustomerServiceRequest();
 
-        $this->request->imageInit($accessToken, $openid, $mediaId);
-        $result = $this->client->getAcsResponse($this->request);
+        $request->imageInit($accessToken, $openid, $mediaId);
+        $result = $this->client->getAcsResponse($request);
 
 		return $this->response($result, TRUE);
 	}
@@ -378,10 +378,10 @@ class WechatApiExample
      **/
 	public function sendVoice($accessToken, $openid, $mediaId)
 	{
-        $this->request = new News\CustomerServiceRequest();
+        $request = new News\CustomerServiceRequest();
 
-        $this->request->voiceInit($accessToken, $openid, $mediaId);
-        $result = $this->client->getAcsResponse($this->request);
+        $request->voiceInit($accessToken, $openid, $mediaId);
+        $result = $this->client->getAcsResponse($request);
 
 		return $this->response($result, TRUE);
 	}
@@ -391,10 +391,10 @@ class WechatApiExample
      **/
 	public function sendVideo($accessToken, $openid, $mediaId, $thumbMediaId, $title, $description)
 	{
-        $this->request = new News\CustomerServiceRequest();
+        $request = new News\CustomerServiceRequest();
 
-        $this->request->videoInit($accessToken, $openid, $mediaId, $thumbMediaId, $title, $description);
-        $result = $this->client->getAcsResponse($this->request);
+        $request->videoInit($accessToken, $openid, $mediaId, $thumbMediaId, $title, $description);
+        $result = $this->client->getAcsResponse($request);
 
 		return $this->response($result, TRUE);
 	}
@@ -404,10 +404,10 @@ class WechatApiExample
      **/
 	public function sendMusic($accessToken, $openid, $title, $description, $musicurl, $hqmusicurl, $thumbMediaId)
 	{
-        $this->request = new News\CustomerServiceRequest();
+        $request = new News\CustomerServiceRequest();
 
-		$this->request->musicInit($accessToken, $openid, $title, $description, $musicurl, $hqmusicurl, $thumbMediaId);
-        $result = $this->client->getAcsResponse($this->request);
+		$request->musicInit($accessToken, $openid, $title, $description, $musicurl, $hqmusicurl, $thumbMediaId);
+        $result = $this->client->getAcsResponse($request);
 
 		return $this->response($result, TRUE);
 	}
@@ -417,10 +417,10 @@ class WechatApiExample
      **/
 	public function sendNews($accessToken, $openid, $articles)
 	{
-        $this->request = new News\CustomerServiceRequest();
+        $request = new News\CustomerServiceRequest();
 
-		$this->request->newsInit($accessToken, $openid, $articles);
-        $result = $this->client->getAcsResponse($this->request);
+		$request->newsInit($accessToken, $openid, $articles);
+        $result = $this->client->getAcsResponse($request);
 
 		return $this->response($result, TRUE);
 	}
@@ -430,10 +430,10 @@ class WechatApiExample
      **/
 	public function sendMpnews($accessToken, $openid, $mediaId)
 	{
-        $this->request = new News\CustomerServiceRequest();
+        $request = new News\CustomerServiceRequest();
 
-		$this->request->mpnewsInit($accessToken, $openid, $mediaId);
-        $result = $this->client->getAcsResponse($this->request);
+		$request->mpnewsInit($accessToken, $openid, $mediaId);
+        $result = $this->client->getAcsResponse($request);
 
 		return $this->response($result, TRUE);
 	}
@@ -443,10 +443,10 @@ class WechatApiExample
      **/
 	public function sendWxcard($accessToken, $openid, $cardId)
 	{
-        $this->request = new News\CustomerServiceRequest();
+        $request = new News\CustomerServiceRequest();
 
-		$this->request->wxcardInit($accessToken, $openid, $cardId);
-        $result = $this->client->getAcsResponse($this->request);
+		$request->wxcardInit($accessToken, $openid, $cardId);
+        $result = $this->client->getAcsResponse($request);
 
 		return $this->response($result, TRUE);
 	}
@@ -456,10 +456,10 @@ class WechatApiExample
      **/
 	public function sendMiniprogrampage($accessToken, $openid, $miniprogrampage)
 	{
-        $this->request = new News\CustomerServiceRequest();
+        $request = new News\CustomerServiceRequest();
 
-		$this->request->miniprogrampageInit($accessToken, $openid, $miniprogrampage);
-        $result = $this->client->getAcsResponse($this->request);
+		$request->miniprogrampageInit($accessToken, $openid, $miniprogrampage);
+        $result = $this->client->getAcsResponse($request);
 
 		return $this->response($result, TRUE);
 	}
@@ -469,10 +469,10 @@ class WechatApiExample
      **/
 	public function getTemplateList($accessToken)
 	{
-        $this->request = new News\TemplateRequest();
+        $request = new News\TemplateRequest();
 
-        $this->request->listInit($accessToken);
-        $result = $this->client->getAcsResponse($this->request);
+        $request->listInit($accessToken);
+        $result = $this->client->getAcsResponse($request);
 
 		return $this->response($result);
 	}
@@ -482,10 +482,10 @@ class WechatApiExample
      **/
 	public function deleteTemplate($accessToken, $templateId)
 	{
-        $this->request = new News\TemplateRequest();
+        $request = new News\TemplateRequest();
 
-        $this->request->delInit($accessToken, $templateId);
-        $result = $this->client->getAcsResponse($this->request);
+        $request->delInit($accessToken, $templateId);
+        $result = $this->client->getAcsResponse($request);
 
 		return $this->response($result, TRUE);
 	}
@@ -495,10 +495,10 @@ class WechatApiExample
      **/
 	public function getTemplateId($accessToken, $templateIdShort)
 	{
-        $this->request = new News\TemplateRequest();
+        $request = new News\TemplateRequest();
 
-        $this->request->getInit($accessToken, $templateIdShort);
-        $result = $this->client->getAcsResponse($this->request);
+        $request->getInit($accessToken, $templateIdShort);
+        $result = $this->client->getAcsResponse($request);
 
 		return $this->response($result);
 	}
@@ -508,10 +508,10 @@ class WechatApiExample
      **/
 	public function sendTemplate($accessToken, $param)
 	{
-        $this->request = new News\TemplateRequest();
+        $request = new News\TemplateRequest();
 
-        $this->request->sendInit($accessToken, $param);
-        $result = $this->client->getAcsResponse($this->request);
+        $request->sendInit($accessToken, $param);
+        $result = $this->client->getAcsResponse($request);
 
 		return $this->response($result, TRUE);
 	}
@@ -521,9 +521,9 @@ class WechatApiExample
      **/
 	public function getShortUrl($accessToken, $url)
 	{
-        $this->request = new Account\ShortUrlRequest($accessToken, $url);
+        $request = new Account\ShortUrlRequest($accessToken, $url);
 
-        $result = $this->client->getAcsResponse($this->request);
+        $result = $this->client->getAcsResponse($request);
 
 		return $this->response($result);
 	}
@@ -533,10 +533,10 @@ class WechatApiExample
      **/
 	public function getQrcode($accessToken, $scene, $expireSeconds)
 	{
-        $this->request = new Account\QrCodeRequest();
+        $request = new Account\QrCodeRequest();
 
-        $this->request->ticketInit($accessToken, $scene, $expireSeconds);
-        $result = $this->client->getAcsResponse($this->request);
+        $request->ticketInit($accessToken, $scene, $expireSeconds);
+        $result = $this->client->getAcsResponse($request);
 
 		if(isset($result["errcode"]) && $result["errcode"] !== 0)
 		{
@@ -546,8 +546,8 @@ class WechatApiExample
 		}
         $ticket = $result['ticket'];
 
-        $this->request->qrcodeInit($ticket);
-        $requestUrl = $this->client->getRequestUrl($this->request);
+        $request->qrcodeInit($ticket);
+        $requestUrl = $this->client->getRequestUrl($request);
 
 		return $requestUrl;
 	}
@@ -557,12 +557,12 @@ class WechatApiExample
      **/
 	public function oneTimeSubscribeAuthorization($templateId, $scene, $redirectUrl, $reserved)
 	{
-        $this->request = new News\SubscribeRequest();
+        $request = new News\SubscribeRequest();
 
-        $this->request->authorizationInit($templateId, $scene, $redirectUrl, $reserved);
+        $request->authorizationInit($templateId, $scene, $redirectUrl, $reserved);
 
         $this->client = new SubscribeClient();
-        $this->client->subscribeMsgAuthorization($this->request);
+        $this->client->subscribeMsgAuthorization($request);
 	}
 
 	/**
@@ -570,10 +570,10 @@ class WechatApiExample
      **/
 	public function sendSubscribeTemplateForOneTime($accessToken, $param)
 	{
-        $this->request = new News\SubscribeRequest();
+        $request = new News\SubscribeRequest();
 
-        $this->request->templateInit($accessToken, $param);
-        $result = $this->client->getAcsResponse($this->request);
+        $request->templateInit($accessToken, $param);
+        $result = $this->client->getAcsResponse($request);
 
 		return $this->response($result);
 	}
@@ -583,10 +583,10 @@ class WechatApiExample
      **/
 	public function setIndustry($accessToken, $industrys)
 	{
-        $this->request = new News\IndustryRequest();
+        $request = new News\IndustryRequest();
 
-        $this->request->setInit($accessToken, $industrys);
-        $result = $this->client->getAcsResponse($this->request);
+        $request->setInit($accessToken, $industrys);
+        $result = $this->client->getAcsResponse($request);
 
 		return $this->response($result, TRUE);
 	}
@@ -596,10 +596,10 @@ class WechatApiExample
      **/
 	public function getIndustry($accessToken)
 	{
-        $this->request = new News\IndustryRequest();
+        $request = new News\IndustryRequest();
 
-        $this->request->getInit($accessToken);
-        $result = $this->client->getAcsResponse($this->request);
+        $request->getInit($accessToken);
+        $result = $this->client->getAcsResponse($request);
 
 		return $this->response($result);
 	}
@@ -609,10 +609,10 @@ class WechatApiExample
      **/
 	public function getMaterialList($accessToken, $type, $offset, $count)
 	{
-        $this->request = new Material\MaterialRequest();
+        $request = new Material\MaterialRequest();
 
-        $this->request->listInit($accessToken, $type, $offset, $count);
-        $result = $this->client->getAcsResponse($this->request);
+        $request->listInit($accessToken, $type, $offset, $count);
+        $result = $this->client->getAcsResponse($request);
 
 		return $this->response($result);
 	}
@@ -622,10 +622,10 @@ class WechatApiExample
      **/
 	public function getMaterialCount($accessToken)
 	{
-        $this->request = new Material\MaterialRequest();
+        $request = new Material\MaterialRequest();
 
-        $this->request->countInit($accessToken);
-        $result = $this->client->getAcsResponse($this->request);
+        $request->countInit($accessToken);
+        $result = $this->client->getAcsResponse($request);
 
 		return $this->response($result);
 	}
@@ -635,10 +635,10 @@ class WechatApiExample
      **/
 	public function putMaterialNews($accessToken, $mediaId, $index, $articles)
 	{
-        $this->request = new Material\MaterialRequest();
+        $request = new Material\MaterialRequest();
 
-        $this->request->updateInit($accessToken, $mediaId, $index, $articles);
-        $result = $this->client->getAcsResponse($this->request);
+        $request->updateInit($accessToken, $mediaId, $index, $articles);
+        $result = $this->client->getAcsResponse($request);
 
 		return $this->response($result);
 	}
@@ -648,10 +648,10 @@ class WechatApiExample
      **/
 	public function deleteMaterial($accessToken, $mediaId)
 	{
-        $this->request = new Material\MaterialRequest();
+        $request = new Material\MaterialRequest();
 
-        $this->request->deleteInit($accessToken, $mediaId);
-        $result = $this->client->getAcsResponse($this->request);
+        $request->deleteInit($accessToken, $mediaId);
+        $result = $this->client->getAcsResponse($request);
 
 		return $this->response($result);
 	}
@@ -661,10 +661,10 @@ class WechatApiExample
      **/
 	public function getMaterialInfo($accessToken, $mediaId)
 	{
-        $this->request = new Material\MaterialRequest();
+        $request = new Material\MaterialRequest();
 
-        $this->request->getInit($accessToken, $mediaId);
-        $result = $this->client->getAcsResponse($this->request);
+        $request->getInit($accessToken, $mediaId);
+        $result = $this->client->getAcsResponse($request);
 
 		return $this->response($result);
 	}
@@ -674,10 +674,10 @@ class WechatApiExample
      **/
 	public function postNewsMaterial($accessToken, $articles)
 	{
-        $this->request = new Material\MaterialRequest();
+        $request = new Material\MaterialRequest();
 
-        $this->request->addNewsInit($accessToken, $articles);
-        $result = $this->client->getAcsResponse($this->request);
+        $request->addNewsInit($accessToken, $articles);
+        $result = $this->client->getAcsResponse($request);
 
 		return $this->response($result);
 	}
@@ -687,10 +687,10 @@ class WechatApiExample
      **/
 	public function uploadImgNewsMaterial($accessToken, $media)
 	{
-        $this->request = new Material\MaterialRequest();
+        $request = new Material\MaterialRequest();
 
-        $this->request->uploadImgInit($accessToken, $media);
-        $result = $this->client->getAcsResponse($this->request);
+        $request->uploadImgInit($accessToken, $media);
+        $result = $this->client->getAcsResponse($request);
 
 		return $this->response($result);
 	}
@@ -700,10 +700,10 @@ class WechatApiExample
      **/
 	public function addMaterial($accessToken, $type, $media, $description = NULL)
 	{
-        $this->request = new Material\MaterialRequest();
+        $request = new Material\MaterialRequest();
 
-        $this->request->addInit($accessToken, $type, $media, $description);
-        $result = $this->client->getAcsResponse($this->request);
+        $request->addInit($accessToken, $type, $media, $description);
+        $result = $this->client->getAcsResponse($request);
 
 		return $this->response($result);
 	}
@@ -713,10 +713,10 @@ class WechatApiExample
      **/
 	public function uploadTempMedia($accessToken, $type, $mediaId)
 	{
-        $this->request = new Material\TempMediaRequest();
+        $request = new Material\TempMediaRequest();
 
-        $this->request->uploadInit($accessToken, $type, $mediaId);
-        $result = $this->client->getAcsResponse($this->request);
+        $request->uploadInit($accessToken, $type, $mediaId);
+        $result = $this->client->getAcsResponse($request);
 
 		return $this->response($result);
 	}
@@ -726,19 +726,19 @@ class WechatApiExample
      **/
 	public function getTempMedia($accessToken, $mediaId, $type)
 	{
-        $this->request = new Material\TempMediaRequest();
+        $request = new Material\TempMediaRequest();
 
-        $this->request->getInit($accessToken, $mediaId);
+        $request->getInit($accessToken, $mediaId);
 		
 		if($type == "video")//视频
 		{
-			$result = $this->client->getAcsResponse($this->request);
+			$result = $this->client->getAcsResponse($request);
 			
 			return $this->response($result);
 		}
 		else
 		{
-			$requestUrl = $this->client->getRequestUrl($this->request);
+			$requestUrl = $this->client->getRequestUrl($request);
 
 			return $requestUrl;
 		}
@@ -749,11 +749,11 @@ class WechatApiExample
      **/
 	public function openComment($accessToken, $msgDataId, $index)
 	{
-        $this->request = new Comment\CommentRequest();
+        $request = new Comment\CommentRequest();
 
-        $this->request->openInit($accessToken, $msgDataId, $index);
+        $request->openInit($accessToken, $msgDataId, $index);
 
-		$result = $this->client->getAcsResponse($this->request);
+		$result = $this->client->getAcsResponse($request);
 		
 		return $this->response($result);
 	}
@@ -763,11 +763,11 @@ class WechatApiExample
      **/
 	public function closeComment($accessToken, $msgDataId, $index)
 	{
-        $this->request = new Comment\CommentRequest();
+        $request = new Comment\CommentRequest();
 
-        $this->request->closeInit($accessToken, $msgDataId, $index);
+        $request->closeInit($accessToken, $msgDataId, $index);
 
-		$result = $this->client->getAcsResponse($this->request);
+		$result = $this->client->getAcsResponse($request);
 		
 		return $this->response($result);
 	}
@@ -777,11 +777,11 @@ class WechatApiExample
      **/
 	public function getCommentList($accessToken, $msgDataId, $index, $begin, $count, $type)
 	{
-        $this->request = new Comment\CommentRequest();
+        $request = new Comment\CommentRequest();
 
-        $this->request->listInit($accessToken, $msgDataId, $index, $begin, $count, $type);
+        $request->listInit($accessToken, $msgDataId, $index, $begin, $count, $type);
 
-		$result = $this->client->getAcsResponse($this->request);
+		$result = $this->client->getAcsResponse($request);
 		
 		return $this->response($result);
 	}
@@ -791,11 +791,11 @@ class WechatApiExample
      **/
 	public function markelectComment($accessToken, $msgDataId, $index, $userCommentId)
 	{
-        $this->request = new Comment\CommentRequest();
+        $request = new Comment\CommentRequest();
 
-        $this->request->markelectInit($accessToken, $msgDataId, $index, $userCommentId);
+        $request->markelectInit($accessToken, $msgDataId, $index, $userCommentId);
 
-		$result = $this->client->getAcsResponse($this->request);
+		$result = $this->client->getAcsResponse($request);
 		
 		return $this->response($result);
 	}
@@ -805,11 +805,11 @@ class WechatApiExample
      **/
 	public function unmarkelectComment($accessToken, $msgDataId, $index, $userCommentId)
 	{
-        $this->request = new Comment\CommentRequest();
+        $request = new Comment\CommentRequest();
 
-        $this->request->unmarkelectInit($accessToken, $msgDataId, $index, $userCommentId);
+        $request->unmarkelectInit($accessToken, $msgDataId, $index, $userCommentId);
 
-		$result = $this->client->getAcsResponse($this->request);
+		$result = $this->client->getAcsResponse($request);
 		
 		return $this->response($result);
 	}
@@ -819,11 +819,11 @@ class WechatApiExample
      **/
 	public function deleteComment($accessToken, $msgDataId, $index, $userCommentId)
 	{
-        $this->request = new Comment\CommentRequest();
+        $request = new Comment\CommentRequest();
 
-        $this->request->deleteInit($accessToken, $msgDataId, $index, $userCommentId);
+        $request->deleteInit($accessToken, $msgDataId, $index, $userCommentId);
 
-		$result = $this->client->getAcsResponse($this->request);
+		$result = $this->client->getAcsResponse($request);
 		
 		return $this->response($result);
 	}
@@ -833,11 +833,11 @@ class WechatApiExample
      **/
 	public function replyComment($accessToken, $msgDataId, $index, $userCommentId, $content)
 	{
-        $this->request = new Comment\CommentRequest();
+        $request = new Comment\CommentRequest();
 
-        $this->request->replyInit($accessToken, $msgDataId, $index, $userCommentId, $content);
+        $request->replyInit($accessToken, $msgDataId, $index, $userCommentId, $content);
 
-		$result = $this->client->getAcsResponse($this->request);
+		$result = $this->client->getAcsResponse($request);
 		
 		return $this->response($result);
 	}
@@ -847,11 +847,11 @@ class WechatApiExample
      **/
 	public function deleteReplyToComment($accessToken, $msgDataId, $index, $userCommentId)
 	{
-        $this->request = new Comment\CommentRequest();
+        $request = new Comment\CommentRequest();
 
-        $this->request->deleteReplyInit($accessToken, $msgDataId, $index, $userCommentId);
+        $request->deleteReplyInit($accessToken, $msgDataId, $index, $userCommentId);
 
-		$result = $this->client->getAcsResponse($this->request);
+		$result = $this->client->getAcsResponse($request);
 		
 		return $this->response($result);
 	}
@@ -861,11 +861,11 @@ class WechatApiExample
      **/
 	public function batchPullBlacklist($accessToken, $openidList)
 	{
-        $this->request = new User\BlacklistRequest();
+        $request = new User\BlacklistRequest();
 
-        $this->request->batchPullBlackInit($accessToken, $openidList);
+        $request->batchPullBlackInit($accessToken, $openidList);
 
-		$result = $this->client->getAcsResponse($this->request);
+		$result = $this->client->getAcsResponse($request);
 		
 		return $this->response($result, TRUE);
 	}
@@ -875,11 +875,11 @@ class WechatApiExample
      **/
 	public function batchClearBlacklist($accessToken, $openidList)
 	{
-        $this->request = new User\BlacklistRequest();
+        $request = new User\BlacklistRequest();
 
-        $this->request->batchClearBlackInit($accessToken, $openidList);
+        $request->batchClearBlackInit($accessToken, $openidList);
 
-		$result = $this->client->getAcsResponse($this->request);
+		$result = $this->client->getAcsResponse($request);
 		
 		return $this->response($result, TRUE);
 	}
@@ -889,11 +889,11 @@ class WechatApiExample
      **/
 	public function getBlacklist($accessToken, $beginOpenid)
 	{
-        $this->request = new User\BlacklistRequest();
+        $request = new User\BlacklistRequest();
 
-        $this->request->listInit($accessToken, $beginOpenid);
+        $request->listInit($accessToken, $beginOpenid);
 
-		$result = $this->client->getAcsResponse($this->request);
+		$result = $this->client->getAcsResponse($request);
 		
 		return $this->response($result);
 	}
@@ -903,9 +903,9 @@ class WechatApiExample
      **/
 	public function getAutoreplyRule($accessToken)
 	{
-        $this->request = new News\AutoreplyRuleRequest($accessToken);
+        $request = new News\AutoreplyRuleRequest($accessToken);
 
-        $result = $this->client->getAcsResponse($this->request);
+        $result = $this->client->getAcsResponse($request);
 
 		return $this->response($result);
 	}
@@ -948,12 +948,12 @@ class WechatApiExample
 
 
 
-$this->wechatapiexample = new WechatApiExample();
+// $this->wechatapiexample = new WechatApiExample();
 /** 网页授权 获取 微信用户信息 **/
-if( ($result = $this->wechatapiexample->webGetUserInfo()) === FALSE)
-{
-	echo $this->wechatapiexample->getErrorMsg();exit;
-}
+// if( ($result = $this->wechatapiexample->webGetUserInfo()) === FALSE)
+// {
+	// echo $this->wechatapiexample->getErrorMsg();exit;
+// }
 
 
 /** 获取 全局唯一接口调用凭据(access token) **/
@@ -1664,4 +1664,4 @@ if( ($result = $this->wechatapiexample->webGetUserInfo()) === FALSE)
 // }
 
 
-var_dump($result);
+// var_dump($result);
